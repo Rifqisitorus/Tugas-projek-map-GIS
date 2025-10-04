@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sebaran Bank dan ATM di Daerah Baros</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <h2>Sebaran Bank dan ATM di Daerah Baros</h2>
+  <div id="map" style="width: 100%; height: 600px;"></div>
+
+  <script>
+    // Pusat peta (Baros, Sukabumi)
+    var map = L.map('map').setView([-6.9363, 106.9299], 15);
+
+    // Tambahkan layer OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Data GeoJSON Bank & ATM
+    var bankATM = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": { "nama": "Bank BRI Baros" },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [106.9292, -6.9355]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": { "nama": "ATM Mandiri Baros" },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [106.9305, -6.9371]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": { "nama": "Bank BCA Baros" },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [106.9318, -6.9382]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": { "nama": "ATM BNI Baros" },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [106.9287, -6.9348]
+          }
+        }
+      ]
+    };
+
+    // Tambahkan marker ke peta dari GeoJSON
+    L.geoJSON(bankATM, {
+      onEachFeature: function (feature, layer) {
+        if (feature.properties && feature.properties.nama) {
+          layer.bindPopup(feature.properties.nama);
+        }
+      }
+    }).addTo(map);
+  </script>
+</body>
+</html>
+```

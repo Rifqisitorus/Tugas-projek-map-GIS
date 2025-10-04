@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Bank BRI Baros"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.9292, -6.9355]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "ATM Mandiri Baros"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.9305, -6.9371]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Bank BCA Baros"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.9318, -6.9382]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "ATM BNI Baros"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.9287, -6.9348]
+      }
+    }
+  ]
+}
+
